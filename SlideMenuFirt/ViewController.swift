@@ -31,18 +31,21 @@ class ViewController: UIViewController {
     var menuSlide = false
     @IBAction func ChoseViewAction(_ sender: UIBarButtonItem) {
         if !menuSlide {
-            leadingVC = CGA
-            trailingVC.constant = -150
+            leadingVC.constant = 2*(firtView.bounds.width)/3
+            trailingVC.constant = -2*(firtView.bounds.width)/3
+//            firtView.frame.origin.x = firtView.bounds.width/2
             menuSlide = true
             firtView.alpha = 0.4
         }
         else {
-            leadingVC.multiplier
+            leadingVC.constant = 0
             trailingVC.constant = 0
+            
+//             firtView.frame.origin.x = 0
             menuSlide = false
             firtView.alpha = 1
         }
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()})
+        UIView.animate(withDuration: 2, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()})
     }
     
     @IBAction func CloseAction(_ sender: UIButton) {
@@ -52,7 +55,7 @@ class ViewController: UIViewController {
             menuSlide = false
             firtView.alpha = 1
         }
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()})
+        UIView.animate(withDuration: 2, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()})
     }
     
 
